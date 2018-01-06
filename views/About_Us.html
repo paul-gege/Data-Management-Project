@@ -1,0 +1,42 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<body>
+<div class="container">
+<div class="card-panel grey lighten-5">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <nav class=" light-blue accent-4">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"><img  src="../public/img/edited.png" width=80px height=50px style="padding:10px 0 0 10px"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">About Us</a></li>
+        <li><a href="views">Views</a></li>
+		<li><a href="search">Search</a></li>
+      </ul>
+    </div>
+  </nav>
+  	<br/>
+	<br/>
+	<div class="row">
+		<div class="col-md-6">
+			<center><img alt="Food Informatics logo" src="../public/img/logo.png" width=380px height=230px>
+			</div>
+			<br/>
+			<br/>
+			<div class="col-md-6">	We created a Food Rating website using Python, HTML, and CSS with an SQLite database that pulls food nutrition information from the 
+			<a href="https://ndb.nal.usda.gov/ndb/" style="color: #CC0000">USDA Food Composition Databases</a> website using JSON in its api. Our website pulled nutritional information from the USDA Food Database, and 
+			we then combine that data with our own rating system to create our own database that stores food information along with ratings and reviews to rank foods. On our website, 
+			a user can search foods by name, food category, manufacturer and user ratings, which will query our database. Then, users can select a food from their filtered list and see nutritional information, as well as
+			ingredients and recent reviews, and enter their own review. Users can also view predefined views of our database.
+			</div>		
+			<br/>
+			<div>Our main goal is to create a website that allows users to search for food they would enjoy eating with by looking . Some of our motivation for this idea is that we see many websites that have food and nutritional information, but on them there is no way to quickly search this information to find food products that they will enjoy based on reviews. Another goal which we have with this idea is to create a food database website that is unique in that it is less focused on solely the nutritional facts about food, but also includes a system to allow for user ratings based on taste and preference. We also want to include a way to have users give their input, via ratings and reviews.
+		</div>
+		</div>
+		<br/>
+		<br/>
+</div>
+</div>
+</body>
+{% endblock %}

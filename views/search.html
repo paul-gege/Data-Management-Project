@@ -1,0 +1,136 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<body>
+<div class="container">
+<div class="card-panel grey lighten-5">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <nav class=" light-blue accent-4">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"><img src="../public/img/edited.png" width=80px height=50px style="padding:10px 0 0 10px"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">About Us</a></li>
+        <li><a href="views">Views</a></li>
+		<li><a href="search">Search</a></li>
+      </ul>
+    </div>
+  </nav>
+<label>Food Name</label>
+<form action="{{ url_for('search') }}" method="POST">
+	<div>
+		{{ form.csrf_token }}
+		{{ form.nameoffood(list="foodname") }}
+<!--	  <datalist id="foodname">
+		{% for all in options %}
+		<option value = "{{all[0]}}"/>
+		{% endfor %}
+	  </datalist>
+-->
+  	</div>
+  
+		<div>
+				<div class="Section" >
+					<div class="col-md-2 inset-right">
+						<label>Ratings Above</label>
+						<select name="rating">
+							<option value="0" selected>Select Value</option>
+							<option value="9.5" >9.5</option>
+							<option value="9" >9</option>
+							<option value="8.5" >8.5</option>
+							<option value="8" >8</option>
+							<option value="7.5" >7.5</option>
+							<option value="7" >7</option>
+							<option value="6.5" >6.5</option>
+							<option value="6" >6</option>
+							<option value="5.5" >5.5</option>
+						</select>
+					</div>
+					<div class="col-md-2 inset-right">
+						<label>Select Food Group</label>
+						<select name='foodgroups'>
+							<option value="" selected>Select Food Groups</option>
+							<option value="American Indian/Alaska Native Foods" >American Indian/Alaska Native Foods</option>
+							<option value="Baby Foods" >Baby Foods</option>
+							<option value="Baked Products" >Baked Products</option>
+							<option value="Beef Products" >Beef Products</option>
+							<option value="Beverages" >Beverages</option>
+							<option value="Breakfast Cereals" >Breakfast Cereals</option>
+							<option value="Cereal Grains and Pasta" >Cereal Grains and Pasta</option>
+							<option value="Dairy and Egg Products" >Dairy and Egg Products</option>
+							<option value="Fast Foods" >Fast Foods</option>
+							<option value="Fats and Oils" >Fats and Oils</option>
+							<option value="Finfish and Shellfish Products" >Finfish and Shellfish Products</option>
+							<option value="Fruits and Fruit Juices" >Fruits and Fruit Juices</option>
+							<option value="Lamb, Veal, and Game Products" >Lamb, Veal, and Game Products</option>
+							<option value="Legumes and Legume Products" >Legumes and Legume Products</option>
+							<option value="Meals, Entrees, and Side Dishes" >Meals, Entrees, and Side Dishes</option>
+							<option value="Nut and Seed Products" >Nut and Seed Products</option>
+							<option value="Pork Products" >Pork Products</option>
+							<option value="Poultry Products" >Poultry Products</option>
+							<option value="Restaurant Foods" >Restaurant Foods</option>
+							<option value="Sausages and Luncheon Meats" >Sausages and Luncheon Meats</option>
+							<option value="Snacks" >Snacks</option>
+							<option value="Soups, Sauces, and Gravies" >Soups, Sauces, and Gravies</option>
+							<option value="Spices and Herbs" >Spices and Herbs</option>
+							<option value="Sweets" >Sweets</option>
+							<option value="Vegetables and Vegetable Products" >Vegetables and Vegetable Products</option>
+						</select>
+					</div>
+			</div>
+		</div>  
+	<label>Manufacturer Name</label>
+	<div>
+		{{ form2.csrf_token }}
+		{{ form2.nameofmanu(list="manufacturer") }}
+	  <datalist id="manufacturer">
+		{% for all2 in options2 %}
+		<option value = "{{all2[0]}}"/>
+		{% endfor %}
+		</datalist>
+	</div>  
+	<div class="form-group">
+		<button type="submit" class="btn btn-success">
+			Search
+		</button>
+	</div>
+</form>
+<br/>
+<br/>
+<br/>
+<div>
+	<span class="black-text text-darken-2">
+	<table class="striped">
+		<tr>
+			<th>Food ID</th>
+			<th>Food</th>
+			<th>Category</th>
+			<th>Manufacturer</th>
+			<th>Rating</th>
+			<th># of Reviews</th>
+			<th>Calories</th>
+		</tr>
+		{% for item in items %}
+		<tr class="card-panel hoverable">
+		   <td><a href="http://localhost:5000/search/<{{item[1]}}>">{{item[0]}}</a></td>
+		   <td><a href="http://localhost:5000/search/<{{item[1]}}>">{{item[1]}}</a></td>
+		   <td><a href="http://localhost:5000/search/<{{item[1]}}>">{{item[2]}}</a></td>
+		   <td><a href="http://localhost:5000/search/<{{item[1]}}>">{{item[3]}}</a></td>
+		   <td><a href="http://localhost:5000/search/<{{item[1]}}>">{{item[4]}}</a></td>
+		   <td><a href="http://localhost:5000/search/<{{item[1]}}>">{{item[5]}}</a></td>
+		   <td><a href="http://localhost:5000/search/<{{item[1]}}>">{{item[6]}}</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<script>
+  $(document).ready(function () {
+    $('select').material_select();
+});
+</script>
+</div>
+</div>
+</body>
+{% endblock %}
+
+

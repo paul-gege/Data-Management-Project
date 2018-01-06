@@ -1,0 +1,246 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<body>
+<div class="container">
+<div class="card-panel grey lighten-5">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <nav class=" light-blue accent-4">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"><img src="../public/img/edited.png" width=80px height=50px style="padding:10px 0 0 10px"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">About Us</a></li>
+        <li><a href="views">Views</a></li>
+		<li><a href="search">Search</a></li>
+      </ul>
+    </div>
+  </nav>
+		<div style="overflow: auto;">
+			{%if check == 'MajorInfo' %}
+            <table class="striped">
+				<tr>
+					<th>Food Name</th>
+					<th>Average Rating</th>
+					<th>Ingredients</th>
+					<th>Group Name</th>
+					<th>Food ID</th>
+					<th>Water</th>
+					<th>Energy</th>
+					<th>Protein</th>
+					<th>Total lipid fat</th>
+					<th>Carbohydrate</th>
+					<th>Fiber</th>
+					<th>Total Sugar</th>
+					<th>Lactose</th>
+					<th>Calcium</th>
+					<th>Iron</th>
+					<th>Potassium</th>
+					<th>Sodium</th>
+					<th>Zinc</th>
+					<th>Vitamin C</th>
+					<th>Vitamin B12</th>
+					<th>Vitamin D</th>
+					<th>Cholesterol</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				   <td>{{item[1]}}</td>
+				   <td>{{item[2]}}</td>
+				   <td>{{item[3]}}</td>
+				   <td>{{item[4]}}</td>
+				   <td>{{item[5]}}</td>
+				   <td>{{item[6]}}</td>
+				   <td>{{item[7]}}</td>
+				   <td>{{item[8]}}</td>
+				   <td>{{item[9]}}</td>
+				   <td>{{item[10]}}</td>
+				   <td>{{item[11]}}</td>
+				   <td>{{item[12]}}</td>
+				   <td>{{item[13]}}</td>
+				   <td>{{item[14]}}</td>
+				   <td>{{item[15]}}</td>
+				   <td>{{item[16]}}</td>
+				   <td>{{item[17]}}</td>
+				   <td>{{item[18]}}</td>
+				   <td>{{item[19]}}</td>
+				   <td>{{item[20]}}</td>
+				   <td>{{item[21]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'ProteinManu_Protein' %}
+            <table class="striped">
+				<tr>
+					<th>Manufacturer Name</th>
+					<th># of Protein Heavy Products </th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				   <td>{{item[1]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'HeavyProtein_protein' %}
+            <table class="striped">
+				<tr>
+					<th>Food Name</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'FoodManufacturers' %}
+             <table class="striped">
+				<tr>
+					<th>Food Name</th>
+					<th>Manufacturer Name</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				   <td>{{item[1]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'HeavyProtein_LowCarb' %}
+            <table  class="striped">
+				<tr>
+					<th>Food Name</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'AverageRatings' %}
+             <table class="striped">
+				<tr>
+					<th>Food Name</th>
+					<th>Food ID</th>
+					<th>Average Rating</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				   <td>{{item[1]}}</td>
+				   <td>{{item[2]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'HighlyRated' %}
+              <table class="striped">
+				<tr>
+					<th>Food Name</th>
+					<th>Average Rating</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				   <td>{{item[1]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'CommonNutrients' %}
+            <table class="striped">
+				<tr>
+					<th>Food Name</th>
+					<th>Ingredients</th>
+					<th>Group Name</th>
+					<th>Calories</th>
+					<th>Protein</th>
+					<th>Total lipid fat</th>
+					<th>Carbohydrate</th>
+					<th>Fiber</th>
+					<th>Total Sugar</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				   <td>{{item[1]}}</td>
+				   <td>{{item[2]}}</td>
+				   <td>{{item[3]}}</td>
+				   <td>{{item[4]}}</td>
+				   <td>{{item[5]}}</td>
+				   <td>{{item[6]}}</td>
+				   <td>{{item[7]}}</td>
+				   <td>{{item[8]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'MostReviewed' %}
+             <table class="striped">
+				<tr>
+					<th>Food Name</th>
+					<th>Average Rating</th>
+					<th>Number of Ratings</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td>{{item[0]}}</td>
+				   <td>{{item[1]}}</td>
+				   <td>{{item[2]}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+		<div>
+			{%if check == 'RecentReviews' %}
+			<table class="striped">
+				<tr>
+					<th>Food Name</th>
+					<th>Rating</th>
+					<th>Review</th>
+					<th>User</th>
+				</tr>
+				{% for item in items %}
+				<tr>
+				   <td><a href="http://localhost:5000/search/<{{item[0]}}>">{{item[0]}}</a></td>
+				   <td><a href="http://localhost:5000/search/<{{item[0]}}>">{{item[1]}}</a></td>
+				   <td><a href="http://localhost:5000/search/<{{item[0]}}>">{{item[2]}}</a></td>
+				   <td><a href="http://localhost:5000/search/<{{item[0]}}>">{{item[3]}}</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+		</div>
+  <script>
+  $(document).ready(function () {
+    $('select').material_select();
+});
+</script>
+</div>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<body>
+<div class="container">
+<div class="card-panel grey lighten-5">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <nav class=" light-blue accent-4">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"><img src="../public/img/edited.png" width=80px height=50px style="padding:10px 0 0 10px"></a>
+        <ul class="right hide-on-med-and-down">
+        <li><a href="http://localhost:5000/">About Us</a></li>
+        <li><a href="http://localhost:5000/views">Views</a></li>
+		<li><a href="http://localhost:5000/search">Search</a></li>
+      </ul>
+    </div>
+  </nav>
+	<div>
+	<table class="bordered">
+		<tr>
+			<th>Food ID</th>
+			<th>Food Name</th>
+			<th>Average Rating</th>
+			<th># of Ratings</th>
+			<th>Food Group</th>
+			<th>Manufacturer</th>
+		</tr>
+		{% for item in items %}
+		<tr>
+			<td>{{item[1]}}</td>
+			<td>{{item[2]}}</td>
+			<td>{{item[29]}}</td>
+			<td>{{item[30]}}</td>
+			<td>{{item[9]}}</td>
+			<td>{{item[10]}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+<br>
+<br>
+<br>
+	<table class ="bordered">
+		<tr>
+			<th>Ingredients</th>
+		</tr>
+		{% for item in items %}
+		<tr>
+			<td>{{item[3]}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+<br>
+<br>
+<br>
+	<table class = "bordered">
+		<tr>
+			<th>Water (g)</th>
+			<th>Energy (kcal)</th>
+			<th>Protein (g)</th>
+			<th>Total lipid fat (g)</th>
+			<th>Carbohydrate (g)</th>
+			<th>Fiber (g)</th>
+			<th>Total Sugar (g)</th>
+			<th>Lactose (g)</th>
+			<th>Calcium (mg)</th>
+			<th>Iron (mg)</th>
+			<th>Potassium (mg)</th>
+			<th>Sodium (mg)</th>
+			<th>Zinc (mg)</th>
+			<th>Vitamin C (mg)</th>
+			<th>Vitamin B12 (µg)</th>
+			<th>Vitamin D (IU)</th>
+			<th>Cholesterol (mg)</th>
+		</tr>
+		{% for item in items %}
+		<tr>
+		   <td>{{item[12]}}</td>
+		   <td>{{item[13]}}</td>
+		   <td>{{item[14]}}</td>
+		   <td>{{item[15]}}</td>
+		   <td>{{item[16]}}</td>
+		   <td>{{item[17]}}</td>
+		   <td>{{item[18]}}</td>
+		   <td>{{item[19]}}</td>
+		   <td>{{item[20]}}</td>
+		   <td>{{item[21]}}</td>
+		   <td>{{item[22]}}</td>
+		   <td>{{item[23]}}</td>
+		   <td>{{item[24]}}</td>
+		   <td>{{item[25]}}</td>
+		   <td>{{item[26]}}</td>
+		   <td>{{item[27]}}</td>
+		   <td>{{item[28]}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	</div>
+	</table>
+
+<br>
+<br>
+<br>
+<table class="striped">
+	<tr>
+		<th>Display Name</th>
+		<th>Rating</th>
+		<th>Review</th>
+	</tr>
+	{% for item in ratings %}
+	<tr>
+	   <td>{{item[0]}}</td>
+	   <td>{{item[1]}}</td>
+	   <td>{{item[2]}}</td>
+	</tr>
+	{% endfor %}
+</table>
+<br>
+<br>
+<br>
+{% for item in items %}
+ <form class="form-horizontal" action="/search/{{item[0]}}" method="POST">
+{% endfor %}
+                    <fieldset>
+                        {{ form.csrf_token }}
+                        <p>Input Rating</p>
+                        <input type="number" step="0.5" name="rating" min="0" max="10">
+                        <p>Input Message (optional)</p>
+                        <input type="text" name="message">
+                        <p>Input name (optional)</p>
+                        <input type="text" name="name">
+						{% for item in items %}
+						<input type = "hidden" name="foodid" value="{{item[1]}}">
+						{% endfor %}
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                Submit Rating
+                            </button>
+                        </div>
+                    </fieldset>
+</form>
+<br>
+
+<script>
+  $(document).ready(function () {
+    $('select').material_select();
+});
+</script>
+</div>
+</div>
+</body>
+{% endblock %}
