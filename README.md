@@ -7,6 +7,18 @@ Repository to hold final project for data management course
 Note: Python 3 can be used, but then "import urllib as urllib2" should be changed to
 "import urllib.request as urllib2" in the CreateAll.py and AddFoodsNutrientsManu.py code
 ```
+- Download Virtualenv
+```
+pip install virtualenv
+```
+- Change directories to the project folder and run 
+```
+virtualenv py3
+```
+- Activate the virtual environment
+```
+.\py3\Scripts\activate
+```
 - Install Flask as well using 
 ```
 pip install flask
